@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>HK툴스렌탈 매출·고객유입·홍보 개선 전략</title>
+
+  <style>
+    :root {
+      --navy: #12385b;
+      --navy-dark: #09263f;
+      --blue: #1f6f9c;
+      --blue-light: #eaf5fb;
+
+      --green: #18875c;
+      --green-light: #eaf8f2;
+
+      --orange: #d97706;
+      --orange-light: #fff5e5;
+
+      --red: #c43c35;
+      --red-light: #fff0ee;
+
+      --purple: #6d52b5;
+      --purple-light: #f2effc;
+
+      --text: #1f2937;
+      --text2: #475569;
+      --muted: #64748b;
+
+      --border: #dbe4ec;
+      --bg: #f4f7fa;
+      --white: #ffffff;
+
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(20, 45, 70, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        "Pretendard",
+        "Noto Sans KR",
+        "Apple SD Gothic Neo",
+        "Malgun Gothic",
+        Arial,
+        sans-serif;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 72px 0 60px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(80, 170, 220, 0.35), transparent 35%),
+        linear-gradient(135deg, var(--navy-dark), var(--blue));
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 13px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.45rem);
+      line-height: 1.25;
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin-top: 20px;
+      color: rgba(255,255,255,0.84);
+      font-size: 17px;
+    }
+
+    .hero-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .hero-flow span {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 14px rgba(30, 50, 70, 0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 8px;
+      padding: 11px 0;
+      overflow-x: auto;
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border-radius: 8px;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .nav a:hover {
+      background: var(--blue-light);
+    }
+
+    main {
+      padding: 34px 0 70px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 80px;
+    }
+
+    .section h2 {
+      margin: 0 0 22px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--navy);
+      color: var(--navy);
+      font-size: 27px;
+      letter-spacing: -0.03em;
+    }
+
+    .section h3 {
+      margin: 26px 0 12px;
+      color: var(--navy);
+      font-size: 21px;
+    }
+
+    .lead-box {
+      padding: 24px;
+      border-left: 6px solid var(--blue);
+      border-radius: 12px;
+      background: var(--blue-light);
+      font-size: 17px;
+    }
+
+    .lead-box strong {
+      color: var(--navy);
+    }
+
+    /* SUMMARY CARDS */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .summary-card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .summary-card span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .summary-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    /* TABLE */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th,
+    td {
+      padding: 15px 14px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th:last-child,
+    td:last-child {
+      border-right: 0;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    thead th {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    tbody tr:hover {
+      background: #eef7fb;
+    }
+
+    .rank {
+      display: inline-flex;
+      width: 35px;
+      height: 35px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .rank.top {
+      background: var(--red);
+    }
+
+    /* STRATEGY CARDS */
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .strategy-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #fff;
+    }
+
+    .strategy-card h3 {
+      margin-top: 0;
+    }
+
+    .strategy-card p {
+      margin: 0 0 10px;
+      color: var(--text2);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tag.green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .tag.orange {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .tag.purple {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    /* PACKAGE */
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .package {
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f8fafc;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    /* FLOW */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .flow-item {
+      position: relative;
+      padding: 17px 10px;
+      border-radius: 12px;
+      background: var(--blue-light);
+      color: var(--navy);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .flow-item:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -12px;
+      z-index: 2;
+      transform: translateY(-50%);
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    /* CUSTOMER BUTTONS */
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .fake-button {
+      padding: 18px 12px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      font-weight: 800;
+      box-shadow: 0 5px 15px rgba(18,56,91,0.16);
+    }
+
+    /* CRM */
+    .crm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .crm-card {
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .crm-grade {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--navy);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    /* CONTENT RATIO */
+    .ratio-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .ratio-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 60px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .ratio-bar {
+      height: 14px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8edf2;
+    }
+
+    .ratio-bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), #4ca0c4);
+    }
+
+    /* AI */
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .ai-card {
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #fff, #f7fbfd);
+    }
+
+    .ai-card strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    /* ROADMAP */
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .roadmap-card {
+      padding: 22px;
+      border-radius: 15px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--blue);
+    }
+
+    .roadmap-card:nth-child(2) {
+      border-top-color: var(--orange);
+    }
+
+    .roadmap-card:nth-child(3) {
+      border-top-color: var(--green);
+    }
+
+    .roadmap-card .period {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--blue);
+    }
+
+    .roadmap-card:nth-child(2) .period {
+      color: var(--orange);
+    }
+
+    .roadmap-card:nth-child(3) .period {
+      color: var(--green);
+    }
+
+    .roadmap-card h3 {
+      margin: 0 0 12px;
+    }
+
+    .roadmap-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    /* KPI */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .kpi-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .kpi-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .kpi-card span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* FINAL */
+    .final {
+      padding: 30px;
+      border-radius: 18px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, var(--navy-dark), var(--blue));
+    }
+
+    .final h2 {
+      margin-top: 0;
+      color: #fff;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .final-message {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .top3 {
+      margin-top: 22px;
+      padding: 20px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: rgba(255,255,255,0.72);
+      background: var(--navy-dark);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .summary-grid,
+      .package-grid,
+      .ai-grid,
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .button-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-item:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        right: 50%;
+        bottom: -18px;
+        transform: translateX(50%);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .strategy-grid,
+      .roadmap,
+      .crm-grid,
+      .summary-grid,
+      .package-grid,
+      .ai-grid,
+      .kpi-grid,
+      .button-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ratio-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 22px 18px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      body {
+        background: #fff;
+        font-size: 10pt;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 30px;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      table {
+        min-width: 0;
+        font-size: 8.5pt;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <span class="eyebrow">DIGITAL MARKETING · SALES GROWTH STRATEGY</span>
+
+      <h1>HK툴스렌탈<br>매출·고객유입·홍보 개선 전략</h1>
+
+      <p>
+        새로운 채널을 많이 만드는 것보다,
+        HK툴스렌탈이 이미 보유한 전문장비·기술지원·당일배송·무인반납의 강점을
+        실제 고객 유입과 반복매출로 연결하는 디지털 구조를 구축하는 것이 핵심입니다.
+      </p>
+
+      <div class="hero-flow">
+        <span>검색</span>
+        <span>→</span>
+        <span>신뢰</span>
+        <span>→</span>
+        <span>상담</span>
+        <span>→</span>
+        <span>예약</span>
+        <span>→</span>
+        <span>재대여</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#summary">핵심전략</a>
+      <a href="#priority">10대 전략</a>
+      <a href="#customer">신규고객</a>
+      <a href="#review">리뷰</a>
+      <a href="#website">홈페이지</a>
+      <a href="#crm">CRM</a>
+      <a href="#content">콘텐츠</a>
+      <a href="#b2b">B2B</a>
+      <a href="#ai">AI</a>
+      <a href="#roadmap">실행로드맵</a>
+      <a href="#kpi">KPI</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- SUMMARY -->
+      <section id="summary" class="section">
+        <h2>핵심 전략 요약</h2>
+
+        <div class="lead-box">
+          HK툴스렌탈의 핵심 과제는 광고비 확대보다
+          <strong>“검색 노출 확대 → 리뷰 신뢰 확보 → 목적별 장비 추천 →
+          빠른 견적·예약 → CRM 재대여”</strong>의 고객 흐름을 만드는 것입니다.
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <span>우선과제 01</span>
+            <strong>검색·리뷰</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>우선과제 02</span>
+            <strong>빠른 견적·예약</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>우선과제 03</span>
+            <strong>CRM 재대여</strong>
+          </div>
+
+          <div class="summary-card">
+            <span>중장기 목표</span>
+            <strong>데이터·AI 자동화</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRIORITY -->
+      <section id="priority" class="section">
+        <h2>10대 개선 전략</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>우선</th>
+                <th>개선 전략</th>
+                <th>구체적 실행 내용</th>
+                <th>기대 효과</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><span class="rank top">1</span></td>
+                <td><strong>네이버·구글 지역검색 강화</strong></td>
+                <td>플레이스·비즈니스 등록/소유권 확인, 업체정보 통일, 사진·FAQ 보강</td>
+                <td>검색 신규고객 증가, 전화·길찾기·예약 증가</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank top">2</span></td>
+                <td><strong>리뷰 자동수집 시스템</strong></td>
+                <td>반납 완료 후 리뷰 요청, 네이버·구글 리뷰 링크 발송</td>
+                <td>신뢰도·검색 노출·예약 전환 증가</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank top">3</span></td>
+                <td><strong>촬영 목적별 패키지 상품</strong></td>
+                <td>제품촬영·룩북·인터뷰·라이브커머스·유튜브 세트 구성</td>
+                <td>초보 고객 접근성 및 신규 고객층 확대</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">4</span></td>
+                <td><strong>빠른 견적·재고 확인</strong></td>
+                <td>날짜·장비·수량 입력 후 재고 확인 및 예상견적 안내</td>
+                <td>문의 이탈 감소, 야간·주말 접수 확대</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">5</span></td>
+                <td><strong>CRM 기반 재대여 마케팅</strong></td>
+                <td>30/60/90일 기준 재대여 메시지 자동발송</td>
+                <td>단골 증가, 휴면고객 회수, 반복매출 확대</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">6</span></td>
+                <td><strong>검색형 콘텐츠 강화</strong></td>
+                <td>제품사진 조명 추천, 인터뷰 촬영장비 세트 등 문제 중심 콘텐츠 제작</td>
+                <td>네이버·구글 검색 유입 확대</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">7</span></td>
+                <td><strong>숏폼 콘텐츠 재가공</strong></td>
+                <td>기존 장비 영상을 쇼츠·릴스로 재편집</td>
+                <td>콘텐츠 제작비 절감, 브랜드 노출 확대</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">8</span></td>
+                <td><strong>AI 상담·장비추천</strong></td>
+                <td>촬영목적·장소·예산 입력 기반 장비세트 추천</td>
+                <td>초보 고객 이탈 감소, 상담업무 절감</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">9</span></td>
+                <td><strong>B2B 고객 전용 프로그램</strong></td>
+                <td>회원등급·월정산·장기렌탈·대체장비 지원</td>
+                <td>안정적인 반복매출 및 고정거래처 확보</td>
+              </tr>
+
+              <tr>
+                <td><span class="rank">10</span></td>
+                <td><strong>매출·장비 가동률 대시보드</strong></td>
+                <td>장비별 대여횟수·매출·가동률·고객별 매출 분석</td>
+                <td>고수익 장비 집중 및 저가동 장비 매각 판단</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CUSTOMER -->
+      <section id="customer" class="section">
+        <h2>1. 신규 고객 유입 전략</h2>
+
+        <div class="strategy-grid">
+          <div class="strategy-card">
+            <span class="tag">기존 방식</span>
+            <h3>장비명 중심</h3>
+            <p><strong>Profoto B10X 렌탈</strong></p>
+            <p>
+              장비를 이미 알고 있는 전문가 고객에게는 효과적이지만,
+              장비명을 모르는 신규 고객 확보에는 한계가 있습니다.
+            </p>
+          </div>
+
+          <div class="strategy-card">
+            <span class="tag green">개선 방식</span>
+            <h3>촬영 목적 중심</h3>
+            <p><strong>쇼핑몰 제품촬영 조명 세트</strong></p>
+            <p>Profoto B10X + 소프트박스 + 스탠드</p>
+            <p><strong>기업 인터뷰 촬영 세트</strong></p>
+            <p>조명 2대 + 카메라 + 무선마이크 + 삼각대</p>
+          </div>
+        </div>
+
+        <h3>우선 제작 패키지</h3>
+
+        <div class="package-grid">
+          <div class="package">쇼핑몰 제품촬영</div>
+          <div class="package">룩북·패션촬영</div>
+          <div class="package">기업 인터뷰</div>
+          <div class="package">라이브커머스</div>
+          <div class="package">유튜브 입문</div>
+          <div class="package">1인 크리에이터</div>
+          <div class="package">스튜디오 테더링</div>
+          <div class="package">프로포토 조명</div>
+        </div>
+      </section>
+
+      <!-- REVIEW -->
+      <section id="review" class="section">
+        <h2>2. 리뷰를 광고자산으로 전환</h2>
+
+        <div class="lead-box">
+          별도의 광고비를 늘리기 전에,
+          <strong>실제 렌탈 고객의 인증 리뷰를 축적하는 구조</strong>를 먼저 만드는 것이 효율적입니다.
+        </div>
+
+        <div class="flow">
+          <div class="flow-item">장비 반납 완료</div>
+          <div class="flow-item">30분~2시간</div>
+          <div class="flow-item">카카오·SMS 발송</div>
+          <div class="flow-item">리뷰 링크 제공</div>
+          <div class="flow-item">고객 후기 확보</div>
+          <div class="flow-item">검색·예약 강화</div>
+        </div>
+      </section>
+
+      <!-- WEBSITE -->
+      <section id="website" class="section">
+        <h2>3. 홈페이지를 ‘예약 영업사원’으로 전환</h2>
+
+        <p>
+          고객이 여러 페이지를 탐색하지 않고 필요한 행동을 바로 할 수 있도록,
+          홈페이지 첫 화면에 다음 핵심 버튼을 배치합니다.
+        </p>
+
+        <div class="button-grid">
+          <div class="fake-button">지금 대여 가능한 장비</div>
+          <div class="fake-button">촬영 목적별 추천장비</div>
+          <div class="fake-button">빠른 견적 받기</div>
+          <div class="fake-button">오늘/내일 렌탈 문의</div>
+          <div class="fake-button">카카오 상담</div>
+        </div>
+
+        <div class="flow" style="margin-top:28px;">
+          <div class="flow-item">검색</div>
+          <div class="flow-item">홈페이지</div>
+          <div class="flow-item">장비추천</div>
+          <div class="flow-item">재고확인</div>
+          <div class="flow-item">견적</div>
+          <div class="flow-item">예약</div>
+        </div>
+      </section>
+
+      <!-- 24H -->
+      <section class="section">
+        <h2>4. 24시간 경쟁 대응 전략</h2>
+
+        <div class="lead-box">
+          핵심은 <strong>24시간 영업</strong>이 아니라
+          <strong>24시간 예약접수 가능한 전문 렌탈점</strong>으로 포지셔닝하는 것입니다.
+        </div>
+
+        <div class="flow">
+          <div class="flow-item">고객 문의</div>
+          <div class="flow-item">AI 상담</div>
+          <div class="flow-item">촬영조건 입력</div>
+          <div class="flow-item">장비 추천</div>
+          <div class="flow-item">견적 초안</div>
+          <div class="flow-item">직원 최종확정</div>
+        </div>
+      </section>
+
+      <!-- CRM -->
+      <section id="crm" class="section">
+        <h2>5. CRM 기반 재대여 전략</h2>
+
+        <div class="crm-grid">
+          <div class="crm-card">
+            <div class="crm-grade">A</div>
+            <h3>핵심 VIP 고객</h3>
+            <p>월 2회 이상 대여</p>
+            <p><strong>VIP·B2B 전용 혜택 제공</strong></p>
+          </div>
+
+          <div class="crm-card">
+            <div class="crm-grade">B</div>
+            <h3>성장 가능 고객</h3>
+            <p>3개월 내 2회 이상 대여</p>
+            <p><strong>장기렌탈·패키지 제안</strong></p>
+          </div>
+
+          <div class="crm-card">
+            <div class="crm-grade">C</div>
+            <h3>휴면 고객</h3>
+            <p>6개월 이상 미대여</p>
+            <p><strong>재방문 캠페인 실행</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <section id="content" class="section">
+        <h2>6. SNS 콘텐츠 운영비율</h2>
+
+        <div class="ratio-list">
+
+          <div class="ratio-row">
+            <strong>촬영 문제 해결</strong>
+            <div class="ratio-bar"><span style="width:40%"></span></div>
+            <strong>40%</strong>
+          </div>
+
+          <div class="ratio-row">
+            <strong>촬영장비 추천</strong>
+            <div class="ratio-bar"><span style="width:25%"></span></div>
+            <strong>25%</strong>
+          </div>
+
+          <div class="ratio-row">
+            <strong>실제 촬영사례</strong>
+            <div class="ratio-bar"><span style="width:20%"></span></div>
+            <strong>20%</strong>
+          </div>
+
+          <div class="ratio-row">
+            <strong>신제품·장비 소개</strong>
+            <div class="ratio-bar"><span style="width:10%"></span></div>
+            <strong>10%</strong>
+          </div>
+
+          <div class="ratio-row">
+            <strong>이벤트·프로모션</strong>
+            <div class="ratio-bar"><span style="width:5%"></span></div>
+            <strong>5%</strong>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- POSITIONING -->
+      <section class="section">
+        <h2>7. HK툴스렌탈 차별화 포지셔닝</h2>
+
+        <div class="strategy-grid">
+          <div class="strategy-card">
+            <span class="tag purple">보유 경쟁력</span>
+            <h3>전문장비 + 기술지원</h3>
+            <p>
+              전문 조명, 테더링, 장비 테스트, 수리,
+              당일배송, 무인반납, 구매·렌탈·중고 연계
+            </p>
+          </div>
+
+          <div class="strategy-card">
+            <span class="tag green">추천 메시지</span>
+            <h3>촬영 솔루션 중심</h3>
+            <p><strong>“장비만 빌려주는 곳이 아니라 촬영이 성공하도록 도와주는 렌탈샵”</strong></p>
+            <p>촬영장비가 아니라 촬영 솔루션을 렌탈하세요.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- B2B -->
+      <section id="b2b" class="section">
+        <h2>8. B2B 고객 전용 프로그램</h2>
+
+        <div class="lead-box">
+          사진가·스튜디오·광고회사·영상제작사 등
+          <strong>반복 렌탈 고객을 별도 프로그램으로 관리</strong>하는 것이 중요합니다.
+        </div>
+
+        <div class="package-grid">
+          <div class="package">회원 등급제</div>
+          <div class="package">월말 일괄정산</div>
+          <div class="package">장기렌탈 할인</div>
+          <div class="package">긴급 대체장비</div>
+          <div class="package">신제품 테스트</div>
+          <div class="package">우선 예약</div>
+          <div class="package">B2B 상담</div>
+          <div class="package">연간 계약</div>
+        </div>
+      </section>
+
+      <!-- AI -->
+      <section id="ai" class="section">
+        <h2>9. AI 적용 우선순위</h2>
+
+        <div class="ai-grid">
+          <div class="ai-card">
+            <span class="tag">AI 1</span>
+            <strong>촬영장비 추천</strong>
+            <p>촬영 목적 → 장비세트 추천</p>
+          </div>
+
+          <div class="ai-card">
+            <span class="tag">AI 2</span>
+            <strong>견적서 자동작성</strong>
+            <p>장비 + 기간 + 수량 → 견적 초안</p>
+          </div>
+
+          <div class="ai-card">
+            <span class="tag">AI 3</span>
+            <strong>리뷰 자동화</strong>
+            <p>반납 완료 → 리뷰 요청 발송</p>
+          </div>
+
+          <div class="ai-card">
+            <span class="tag">AI 4</span>
+            <strong>휴면고객 재대여</strong>
+            <p>최근 대여일 → 맞춤 메시지</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROADMAP -->
+      <section id="roadmap" class="section">
+        <h2>10. 3단계 실행 로드맵</h2>
+
+        <div class="roadmap">
+
+          <div class="roadmap-card">
+            <span class="period">1단계 · 0~30일</span>
+            <h3>검색·리뷰 기반 구축</h3>
+            <ul>
+              <li>네이버플레이스 정비</li>
+              <li>구글비즈니스 정비</li>
+              <li>업체정보 통일</li>
+              <li>리뷰 자동 요청</li>
+              <li>대표 패키지 5개 제작</li>
+              <li>카카오 빠른상담 개선</li>
+            </ul>
+            <p><strong>목표: 신규고객 유입 증가</strong></p>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="period">2단계 · 31~90일</span>
+            <h3>예약 전환율 개선</h3>
+            <ul>
+              <li>촬영 목적별 랜딩페이지</li>
+              <li>빠른 견적</li>
+              <li>AI 장비추천</li>
+              <li>CRM 고객DB</li>
+              <li>휴면고객 재대여</li>
+              <li>B2B 회원제</li>
+            </ul>
+            <p><strong>목표: 문의 → 예약 전환 증가</strong></p>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="period">3단계 · 3~6개월</span>
+            <h3>매출·수익성 최적화</h3>
+            <ul>
+              <li>장비별 가동률 분석</li>
+              <li>고객별 매출 분석</li>
+              <li>재구매율 분석</li>
+              <li>장비 수요예측</li>
+              <li>저가동 장비 매각</li>
+              <li>인기 장비 추가매입</li>
+            </ul>
+            <p><strong>목표: 매출 및 이익률 개선</strong></p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- KPI -->
+      <section id="kpi" class="section">
+        <h2>핵심 KPI 7개</h2>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <strong>검색 유입</strong>
+            <span>네이버·구글 신규 고객 증가</span>
+          </div>
+
+          <div class="kpi-card">
+            <strong>월 신규 리뷰 수</strong>
+            <span>온라인 신뢰도 증가</span>
+          </div>
+
+          <div class="kpi-card">
+            <strong>문의 건수</strong>
+            <span>홍보 효과 확인</span>
+          </div>
+
+          <div class="kpi-card">
+            <strong>문의 → 예약 전환율</strong>
+            <span>영업 효율 측정</span>
+          </div>
+
+          <div class="kpi-card">
+            <strong>신규 고객 수</strong>
+            <span>신규 고객 유입 성과</span>
+          </div>
+
+          <div class="kpi-card">
+            <strong>기존 고객 재대여율</strong>
+            <span>반복매출 성과</span>
+          </div>
+
+          <div class="kpi-card">
+            <strong>장비별 가동률</strong>
+            <span>장비 수익성 판단</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL -->
+      <section class="section final">
+        <h2>최종 전략</h2>
+
+        <div class="final-message">
+          HK툴스렌탈은 광고비를 먼저 늘리는 것보다,<br>
+          “검색 노출 확대 → 리뷰로 신뢰 확보 → 목적별 장비추천 →
+          빠른 견적·예약 → CRM 재대여”의 고객 흐름을 만드는 것이
+          매출 증가에 가장 효과적인 전략입니다.
+        </div>
+
+        <div class="top3">
+          <strong>우선순위 TOP 3</strong><br><br>
+          ① 네이버·구글 + 리뷰 강화<br>
+          ② 촬영 목적별 패키지 + 빠른 견적<br>
+          ③ CRM 재대여 자동화
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    HK툴스렌탈 · Digital Marketing & Sales Improvement Strategy
+  </footer>
+
+</body>
+</html>
